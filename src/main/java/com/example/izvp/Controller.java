@@ -29,6 +29,8 @@ public class Controller {
 
     @FXML
     void initialize() {
-
+        authSigInButton.setOnAction(actionEvent -> {
+            System.out.println("Вы нажали кнопку Войти");
+        });
     }
 }

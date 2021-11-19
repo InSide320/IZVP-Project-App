@@ -30,6 +30,9 @@ public class Controller {
     private Button authSigInButton;
 
     @FXML
+    private Button forgetPasswordButton;
+
+    @FXML
     private Button loginSignUpButton;
 
     @FXML
@@ -51,5 +54,58 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
+        forgetPasswordButton.setOnAction(actionEvent -> {
+            forgetPasswordButton.getScene().getWindow().hide();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/com/example/izvp/forgotPassword.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            Parent root = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        });
+
+            authSigInButton.setOnAction(actionEvent -> {
+                if((login_field.getLength()>4) && password_field.getLength() >5){
+                    authSigInButton.getScene().getWindow().hide();
+
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/com/example/izvp/app.fxml"));
+
+                    try {
+                        loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    Parent root = loader.getRoot();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.showAndWait();
+                }
+                else{
+                    authSigInButton.getScene().getWindow().hide();
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/com/example/izvp/invalidData.fxml"));
+
+                    try {
+                        loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    Parent root = loader.getRoot();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.showAndWait();
+                }
+            });
     }
 }

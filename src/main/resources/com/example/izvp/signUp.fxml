@@ -5,12 +5,13 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.izvp.Controllers.SignUpController">
     <children>
-        <AnchorPane layoutY="88.0" prefHeight="313.0" prefWidth="700.0" style="-fx-background-color: #fafafafa;">
+        <AnchorPane layoutY="87.0" prefHeight="313.0" prefWidth="700.0" style="-fx-background-color: #fafafafa;">
             <children>
                 <TextField fx:id="login_field" layoutX="58.0" layoutY="56.0" prefHeight="30.0" prefWidth="257.0" promptText="Логин" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                     <font>
@@ -22,7 +23,7 @@
                         <Font name="Times New Roman" size="15.0" />
                     </font>
                 </PasswordField>
-                <Button fx:id="signUpButton" layoutX="281.0" layoutY="251.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="188.0" style="-fx-background-color: #2E3348;" text="Зарегистрироваться" textFill="WHITE">
+                <Button fx:id="signUpButton" layoutX="257.0" layoutY="249.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="188.0" style="-fx-background-color: #2E3348;" text="Зарегистрироваться" textFill="WHITE">
                     <font>
                         <Font name="Book Antiqua" size="15.0" />
                     </font>
@@ -37,14 +38,16 @@
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="signUpCountry" layoutX="246.0" layoutY="200.0" prefHeight="30.0" prefWidth="257.0" promptText="Старна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="signUpCountry" layoutX="222.0" layoutY="198.0" prefHeight="30.0" prefWidth="257.0" promptText="Старна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </TextField>
-            <RadioButton fx:id="signUpRadioBoxMale" layoutX="230.0" layoutY="113.0" mnemonicParsing="false" text="Мужчина" />
-            <RadioButton fx:id="signUpRadioBoxOther" layoutX="230.0" layoutY="148.0" mnemonicParsing="false" text="Что-то другое" />
-            <RadioButton fx:id="signUpRadioBoxFemale" layoutX="397.0" layoutY="113.0" mnemonicParsing="false" text="Женский" />
+            <RadioButton fx:id="signUpRadioBoxMale" layoutX="222.0" layoutY="132.0" mnemonicParsing="false" text="Мужчина">
+               <toggleGroup>
+                  <ToggleGroup fx:id="selectedGender" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="signUpRadioBoxFemale" layoutX="399.0" layoutY="132.0" mnemonicParsing="false" text="Женский" toggleGroup="$selectedGender" />
             </children>
         </AnchorPane>
         <Label layoutX="261.0" layoutY="14.0" text="itProger" textFill="WHITE">

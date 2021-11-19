@@ -17,10 +17,10 @@ public class Application extends javafx.application.Application {
         stage.setTitle("My First App");
         Scene scene = new Scene(fxmlLoader.load(), 700, 400);
 //        Scene scaneHome = new Scene(fxmlLoaderApp.load(),700,400);
-        Scene scaneSignUp = new Scene(fxmlLoaderSignUp.load(),700,400);
+//        Scene scaneSignUp = new Scene(fxmlLoaderSignUp.load(),700,400);
         stage.setScene(scene);
 //        stage.setScene(scaneHome);
-        stage.setScene(scaneSignUp);
+//        stage.setScene(scaneSignUp);
         stage.show();
     }
 

@@ -1,4 +1,4 @@
-package com.example.izvp;
+package com.example.izvp.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;

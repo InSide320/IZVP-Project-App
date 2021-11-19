@@ -1,13 +1,14 @@
-package com.example.izvp;
+package com.example.izvp.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 
-public class Controller {
+public class SignUpController {
 
     @FXML
     private ResourceBundle resources;
@@ -22,15 +23,28 @@ public class Controller {
     private PasswordField password_field;
 
     @FXML
-    private Button authSigInButton;
+    private Button signUpButton;
 
     @FXML
-    private Button loginSignUpButton;
+    private TextField signUpName;
+
+    @FXML
+    private PasswordField signUpLstName;
+
+    @FXML
+    private TextField signUpCountry;
+
+    @FXML
+    private RadioButton signUpRadioBoxMale;
+
+    @FXML
+    private RadioButton signUpRadioBoxOther;
+
+    @FXML
+    private RadioButton signUpRadioBoxFemale;
 
     @FXML
     void initialize() {
-        authSigInButton.setOnAction(actionEvent -> {
-            System.out.println("Вы нажали кнопку Войти");
-        });
+
     }
 }

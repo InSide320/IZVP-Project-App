@@ -5,4 +5,6 @@ module com.example.izvp {
 
     opens com.example.izvp to javafx.fxml;
     exports com.example.izvp;
+    exports com.example.izvp.Controllers;
+    opens com.example.izvp.Controllers to javafx.fxml;
 }

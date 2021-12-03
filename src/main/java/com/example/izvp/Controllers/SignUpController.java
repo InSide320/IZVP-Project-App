@@ -2,6 +2,9 @@ package com.example.izvp.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.izvp.DatebaseHandler;
+import com.example.izvp.user.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -47,5 +50,30 @@ public class SignUpController {
     @FXML
     void initialize() {
 
+        signUpButton.setOnAction(event -> {
+
+            signUpNewUser();
+
+        });
+    }
+
+    private void signUpNewUser() {
+        DatebaseHandler datebaseHandler = new DatebaseHandler();
+
+        String firstName = signUpName.getText();
+        String lastName = signUpName.getText();
+        String userName = signUpName.getText();
+        String password = signUpName.getText();
+        String location = signUpName.getText();
+        String gender = "";
+        if (signUpRadioBoxMale.isSelected())
+            gender = "Мужской";
+        else
+            gender = "Женский";
+
+        User user = new User(firstName, lastName, userName,
+                password, location, gender);
+
+        datebaseHandler.signUpUser(user);
     }
 }

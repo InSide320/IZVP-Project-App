@@ -3,6 +3,7 @@ package com.example.izvp.Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -72,40 +73,17 @@ public class Controller {
             stage.showAndWait();
         });
 
-            authSigInButton.setOnAction(actionEvent -> {
-                if((login_field.getLength()>4) && password_field.getLength() >5){
-                    authSigInButton.getScene().getWindow().hide();
+        authSigInButton.setOnAction(event -> {
+            String loginText = login_field.getText().trim();
+            String loginPassword = password_field.getText().trim();
 
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/com/example/izvp/app.fxml"));
+            if((!loginText.equals("") && !loginPassword.equals("")) || (login_field.getLength() > 4 && password_field.getLength() > 5))
+                loginUser(loginText, loginPassword);
+            else
+                System.out.println("Login and password is empty");
+        });
+    }
 
-                    try {
-                        loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    Parent root = loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.showAndWait();
-                }
-                else{
-                    authSigInButton.getScene().getWindow().hide();
-                    FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("/com/example/izvp/invalidData.fxml"));
-
-                    try {
-                        loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    Parent root = loader.getRoot();
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root));
-                    stage.showAndWait();
-                }
-            });
+    private void loginUser(String loginText, String loginPassword) {
     }
 }

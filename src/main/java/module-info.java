@@ -1,6 +1,7 @@
 module com.example.izvp {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.izvp to javafx.fxml;

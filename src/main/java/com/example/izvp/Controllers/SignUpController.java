@@ -52,7 +52,7 @@ public class SignUpController {
         String lastName = signUpLstName.getText();
         String userName = login_field.getText();
         String password = password_field.getText();
-        String location = signUpCountry.getText();
+        String locetion = signUpCountry.getText();
         String gender = "";
         if (signUpRadioBoxMale.isSelected())
             gender = "Мужской";
@@ -60,7 +60,7 @@ public class SignUpController {
             gender = "Женский";
 
         User user = new User(firstName, lastName, userName,
-                password, location, gender);
+                password, locetion, gender);
 
         datebaseHandler.signUpUser(user);
     }

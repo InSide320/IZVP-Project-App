@@ -2,8 +2,12 @@ package com.example.izvp.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.example.izvp.DateBaseHandler;
+import com.example.izvp.user.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -77,7 +81,7 @@ public class Controller {
             String loginText = login_field.getText().trim();
             String loginPassword = password_field.getText().trim();
 
-            if((!loginText.equals("") && !loginPassword.equals("")) || (login_field.getLength() > 4 && password_field.getLength() > 5))
+            if ((!loginText.equals("") && !loginPassword.equals("")) || (login_field.getLength() > 4 && password_field.getLength() > 5))
                 loginUser(loginText, loginPassword);
             else
                 System.out.println("Login and password is empty");
@@ -85,5 +89,24 @@ public class Controller {
     }
 
     private void loginUser(String loginText, String loginPassword) {
+        DateBaseHandler dateBaseHandler = new DateBaseHandler();
+        User user = new User();
+        user.setUserName(loginText);
+        user.setPassword(loginPassword);
+        ResultSet resultSet = dateBaseHandler.getUser(user);
+
+        int counter = 0;
+
+        try {
+            while (resultSet.next()) {
+                counter++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (counter >= 1) {
+            System.out.println("Success!");
+        }
     }
 }

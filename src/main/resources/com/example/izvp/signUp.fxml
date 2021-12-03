@@ -33,11 +33,6 @@
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="signUpLstName" layoutX="399.0" layoutY="14.0" prefHeight="30.0" prefWidth="257.0" promptText="Фамилия" style="-fx-background-color: #fafafafa; -fx-border-color: silver; -fx-border-radius: 5;">
-               <font>
-                  <Font name="Times New Roman" size="15.0" />
-               </font>
-            </PasswordField>
             <TextField fx:id="signUpCountry" layoutX="222.0" layoutY="198.0" prefHeight="30.0" prefWidth="257.0" promptText="Старна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font name="Times New Roman" size="15.0" />
@@ -48,6 +43,11 @@
                   <ToggleGroup fx:id="selectedGender" />
                </toggleGroup></RadioButton>
             <RadioButton fx:id="signUpRadioBoxFemale" layoutX="399.0" layoutY="132.0" mnemonicParsing="false" text="Женский" toggleGroup="$selectedGender" />
+            <TextField fx:id="signUpLstName" layoutX="399.0" layoutY="14.0" prefHeight="30.0" prefWidth="257.0" promptText="Фамилия" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+               <font>
+                  <Font name="Times New Roman" size="15.0" />
+               </font>
+            </TextField>
             </children>
         </AnchorPane>
         <Label layoutX="261.0" layoutY="14.0" text="itProger" textFill="WHITE">

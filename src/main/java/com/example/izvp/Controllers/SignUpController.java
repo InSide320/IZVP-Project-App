@@ -1,9 +1,6 @@
 package com.example.izvp.Controllers;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import com.example.izvp.DatebaseHandler;
+import com.example.izvp.DateBaseHandler;
 import com.example.izvp.user.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,12 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
 public class SignUpController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
 
     @FXML
     private TextField login_field;
@@ -33,9 +24,6 @@ public class SignUpController {
     private TextField signUpName;
 
     @FXML
-    private PasswordField signUpLstName;
-
-    @FXML
     private TextField signUpCountry;
 
     @FXML
@@ -48,23 +36,23 @@ public class SignUpController {
     private RadioButton signUpRadioBoxFemale;
 
     @FXML
+    private TextField signUpLstName;
+
+
+    @FXML
     void initialize() {
 
-        signUpButton.setOnAction(event -> {
-
-            signUpNewUser();
-
-        });
+        signUpButton.setOnAction(event -> signUpNewUser());
     }
 
     private void signUpNewUser() {
-        DatebaseHandler datebaseHandler = new DatebaseHandler();
+        DateBaseHandler datebaseHandler = new DateBaseHandler();
 
         String firstName = signUpName.getText();
-        String lastName = signUpName.getText();
-        String userName = signUpName.getText();
-        String password = signUpName.getText();
-        String location = signUpName.getText();
+        String lastName = signUpLstName.getText();
+        String userName = login_field.getText();
+        String password = password_field.getText();
+        String location = signUpCountry.getText();
         String gender = "";
         if (signUpRadioBoxMale.isSelected())
             gender = "Мужской";

@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DatebaseHandler extends Configs {
+public class DateBaseHandler extends Configs {
     Connection dbConnection;
 
     public Connection getDbConnection()

@@ -3,19 +3,12 @@ package com.example.izvp.Controllers;
 import com.example.izvp.Application;
 import com.example.izvp.DateBaseHandler;
 import com.example.izvp.user.User;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -79,19 +72,14 @@ public class Controller {
 
             if ((!loginText.equals("") && !loginPassword.equals("")) || (login_field.getLength() > 4 && password_field.getLength() > 5))
                 loginUser(loginText, loginPassword);
-            else{
+            else {
                 System.out.println("Login and password is empty");
                 Dialog<String> dialog = new Dialog<>();
 
                 dialog.setTitle("Message");
                 dialog.setHeaderText("Results:");
                 dialog.setContentText("Login and password is empty");
-                dialog.setOnCloseRequest(new EventHandler<DialogEvent>() {
-                    @Override
-                    public void handle(DialogEvent dialogEvent) {
-                        dialog.close();
-                    }
-                });
+                dialog.setOnCloseRequest(dialogEvent -> dialog.close());
                 dialog.show();
                 dialog.getOnCloseRequest();
             }

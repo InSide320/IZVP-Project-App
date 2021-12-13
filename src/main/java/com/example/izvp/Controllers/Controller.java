@@ -1,21 +1,28 @@
 package com.example.izvp.Controllers;
 
+import com.example.izvp.Application;
+import com.example.izvp.DateBaseHandler;
+import com.example.izvp.user.User;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-
-import com.example.izvp.DateBaseHandler;
-import com.example.izvp.user.User;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 public class Controller {
 
@@ -35,7 +42,7 @@ public class Controller {
     private Button authSigInButton;
 
     @FXML
-    private Button forgetPasswordButton;
+    private Hyperlink forgetPasswordHyperlink;
 
     @FXML
     private Button loginSignUpButton;
@@ -59,22 +66,11 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
-        forgetPasswordButton.setOnAction(actionEvent -> {
-            forgetPasswordButton.getScene().getWindow().hide();
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/izvp/forgotPassword.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+        forgetPasswordHyperlink.setOnAction(actionEvent -> {
+            forgetPasswordHyperlink.getScene().getWindow().hide();
+            Application application = new Application();
+            application.getHostServices().showDocument("https://google.com");
         });
 
         authSigInButton.setOnAction(event -> {
@@ -83,8 +79,23 @@ public class Controller {
 
             if ((!loginText.equals("") && !loginPassword.equals("")) || (login_field.getLength() > 4 && password_field.getLength() > 5))
                 loginUser(loginText, loginPassword);
-            else
+            else{
                 System.out.println("Login and password is empty");
+                Dialog<String> dialog = new Dialog<>();
+
+                dialog.setTitle("Message");
+                dialog.setHeaderText("Results:");
+                dialog.setContentText("Login and password is empty");
+                dialog.setOnCloseRequest(new EventHandler<DialogEvent>() {
+                    @Override
+                    public void handle(DialogEvent dialogEvent) {
+                        dialog.close();
+                    }
+                });
+                dialog.show();
+                dialog.getOnCloseRequest();
+            }
+
         });
     }
 

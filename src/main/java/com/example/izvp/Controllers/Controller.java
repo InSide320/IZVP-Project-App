@@ -1,21 +1,19 @@
 package com.example.izvp.Controllers;
 
-import java.io.IOException;
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
 import com.example.izvp.DateBaseHandler;
 import com.example.izvp.user.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class Controller {
 
@@ -35,7 +33,7 @@ public class Controller {
     private Button authSigInButton;
 
     @FXML
-    private Button forgetPasswordButton;
+    private Hyperlink forgetPasswordHyperlink;
 
     @FXML
     private Button loginSignUpButton;
@@ -59,23 +57,6 @@ public class Controller {
             stage.setScene(new Scene(root));
             stage.showAndWait();
         });
-        forgetPasswordButton.setOnAction(actionEvent -> {
-            forgetPasswordButton.getScene().getWindow().hide();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/izvp/forgotPassword.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        });
 
         authSigInButton.setOnAction(event -> {
             String loginText = login_field.getText().trim();
@@ -83,8 +64,15 @@ public class Controller {
 
             if ((!loginText.equals("") && !loginPassword.equals("")) || (login_field.getLength() > 4 && password_field.getLength() > 5))
                 loginUser(loginText, loginPassword);
-            else
-                System.out.println("Login and password is empty");
+            else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setContentText("Forget password, repeat please");
+                ButtonType buttonTypeOK = new ButtonType("OK", ButtonBar.ButtonData.CANCEL_CLOSE);
+                alert.getButtonTypes().setAll(buttonTypeOK);
+                alert.showAndWait();
+            }
+
         });
     }
 

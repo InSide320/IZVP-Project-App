@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.izvp.Controllers.SignUpController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #00FFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.izvp.Controllers.SignUpController">
     <children>
-        <AnchorPane layoutY="87.0" prefHeight="313.0" prefWidth="700.0" style="-fx-background-color: #fafafafa;">
+        <AnchorPane layoutY="87.0" prefHeight="313.0" prefWidth="700.0" style="-fx-background-color: #00BFFF;">
             <children>
-                <TextField fx:id="login_field" layoutX="58.0" layoutY="56.0" prefHeight="30.0" prefWidth="257.0" promptText="Логин" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+                <TextField fx:id="login_field" layoutX="58.0" layoutY="56.0" prefHeight="30.0" prefWidth="257.0" promptText="Логін" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                     <font>
                         <Font name="Times New Roman" size="15.0" />
                     </font>
@@ -23,34 +23,34 @@
                         <Font name="Times New Roman" size="15.0" />
                     </font>
                 </PasswordField>
-                <Button fx:id="signUpButton" layoutX="257.0" layoutY="249.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="188.0" style="-fx-background-color: #2E3348;" text="Зарегистрироваться" textFill="WHITE">
+                <Button fx:id="signUpButton" layoutX="257.0" layoutY="248.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="188.0" style="-fx-background-color: #4682B4;" text="Зареєструватись" textFill="WHITE">
                     <font>
                         <Font name="Book Antiqua" size="15.0" />
                     </font>
                 </Button>
-            <TextField fx:id="signUpName" layoutX="58.0" layoutY="14.0" prefHeight="30.0" prefWidth="257.0" promptText="Имя" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="signUpName" layoutX="58.0" layoutY="14.0" prefHeight="30.0" prefWidth="257.0" promptText="Імя" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="signUpCountry" layoutX="222.0" layoutY="198.0" prefHeight="30.0" prefWidth="257.0" promptText="Старна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <TextField fx:id="signUpCountry" layoutX="222.0" layoutY="198.0" prefHeight="30.0" prefWidth="257.0" promptText="Країна" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </TextField>
-            <RadioButton fx:id="signUpRadioBoxMale" layoutX="222.0" layoutY="132.0" mnemonicParsing="false" text="Мужчина">
+            <RadioButton fx:id="signUpRadioBoxMale" layoutX="222.0" layoutY="132.0" mnemonicParsing="false" text="Чоловіча">
                <toggleGroup>
                   <ToggleGroup fx:id="selectedGender" />
                </toggleGroup></RadioButton>
-            <RadioButton fx:id="signUpRadioBoxFemale" layoutX="399.0" layoutY="132.0" mnemonicParsing="false" text="Женский" toggleGroup="$selectedGender" />
-            <TextField fx:id="signUpLstName" layoutX="399.0" layoutY="14.0" prefHeight="30.0" prefWidth="257.0" promptText="Фамилия" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
+            <RadioButton fx:id="signUpRadioBoxFemale" layoutX="399.0" layoutY="132.0" mnemonicParsing="false" text="Жіноча" toggleGroup="$selectedGender" />
+            <TextField fx:id="signUpLstName" layoutX="399.0" layoutY="14.0" prefHeight="30.0" prefWidth="257.0" promptText="Фамілія" style="-fx-background-color: #fafafa; -fx-border-color: silver; -fx-border-radius: 5;">
                <font>
                   <Font name="Times New Roman" size="15.0" />
                </font>
             </TextField>
             </children>
         </AnchorPane>
-        <Label layoutX="261.0" layoutY="14.0" text="itProger" textFill="WHITE">
+        <Label layoutX="226.0" layoutY="14.0" text="Реєстрація">
             <font>
                 <Font name="Times New Roman" size="55.0" />
             </font>
